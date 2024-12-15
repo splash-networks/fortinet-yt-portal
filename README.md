@@ -1,4 +1,4 @@
-# Draytek External Captive Portal
+# Fortinet External Captive Portal
 
 The following actions are required to use the code given in this repo:
 
@@ -8,8 +8,8 @@ Suppose your domain is `hotspot.example.com`. It can be setup like this:
 
 ```
 cd /var/www
-git clone https://github.com/splash-networks/draytek-yt-portal
-mv draytek-yt-portal hotspot.example.com
+git clone https://github.com/splash-networks/fortinet-yt-portal
+mv fortinet-yt-portal hotspot.example.com
 cd /var/www/hotspot.example.com
 ```
 
@@ -34,8 +34,6 @@ The portal files are in public folder in this repository. DocumentRoot will be:
 
 `/var/www/hotspot.example.com/public`
 
-It has been successfully tested on a Draytek Vigor 2926 device with firmware version `3.9.8`.
-
 ## FreeRADIUS Setup
 
-FreeRADIUS setup instructions for Draytek that authorizes all username/passwords are given [here](https://gist.github.com/nasirhafeez/b18b888691212443033f9b7d1ecb5058).
+FreeRADIUS setup instructions that authorizes all username/passwords are given [here](https://gist.github.com/nasirhafeez/b18b888691212443033f9b7d1ecb5058).

@@ -3,8 +3,9 @@
 require 'header.php';
 include 'config.php';
 
-$mac = $_SESSION["client_mac"];
-$url = $_SESSION['url'];
+$post = $_SESSION['post'];
+$magic = $_SESSION['magic'];
+$mac = $_SESSION["usermac"];
 
 $fname = $_POST['fname'];
 $lname = $_POST['lname'];
@@ -37,7 +38,6 @@ mysqli_close($con);
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <link rel="stylesheet" href="assets/styles/bulma.min.css"/>
     <link rel="stylesheet" href="vendor/fortawesome/font-awesome/css/all.css"/>
-    <meta http-equiv="refresh" content="2;url=<?php echo htmlspecialchars($url); ?>" />
     <link rel="icon" type="image/png" href="assets/images/favicomatic/favicon-32x32.png" sizes="32x32"/>
     <link rel="icon" type="image/png" href="assets/images/favicomatic/favicon-16x16.png" sizes="16x16"/>
     <link rel="stylesheet" href="assets/styles/style.css"/>
@@ -62,6 +62,22 @@ mysqli_close($con);
     </div>
 
 </div>
+
+<script type="text/javascript">
+    function formAutoSubmit () {
+        var frm = document.getElementById("login");
+        document.getElementById("login").submit();
+        frm.submit();
+    }
+    // window.onload = formAutoSubmit;
+    window.onload = setTimeout(formAutoSubmit, 2000);
+</script>
+
+<form id="login" method="post" action="<?php echo $post; ?>">
+    <input name="username" type="hidden" value="<?php echo $mac; ?>"/>
+    <input name="password" type="hidden" value="<?php echo $mac; ?>" />
+    <input type="hidden" name=magic value="<?php echo htmlspecialchars($magic);?>">
+</form>
 
 </body>
 </html>

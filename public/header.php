@@ -2,7 +2,7 @@
 
 session_start();
 
-if (!(isset($_SESSION['client_mac']) or isset($_GET['client_mac']))) {
+if (!(isset($_SESSION['usermac']) or isset($_GET['usermac']))) {
     exit('This page cannot be accessed directly. It only works when using a hotspot.');
 }
 
